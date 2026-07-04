@@ -2,25 +2,19 @@ using Godot;
 
 public partial class PlayerController : CharacterBody2D
 {
-    [Export] public float Speed = 200f;
+    // Vignette overlay the crouch state toggles. Cached here so states go through the controller
+    // instead of hardcoding scene paths.
+    public CanvasItem Vignette { get; private set; }
 
-    public override void _PhysicsProcess(double delta)
+    // _EnterTree, not _Ready: this is the scene root, so its _Ready runs AFTER its children's -
+    // including StateMachine._Ready, which enables the start state and touches Vignette.
+    // _EnterTree runs before any child _Ready, so the ref is set in time.
+    public override void _EnterTree()
     {
-        Vector2 direction = Vector2.Zero;
-
-        if (Input.IsActionPressed("forward"))
-            direction.Y -= 1f;
-        if (Input.IsActionPressed("backward"))
-            direction.Y += 1f;
-        if (Input.IsActionPressed("left"))
-            direction.X -= 1f;
-        if (Input.IsActionPressed("right"))
-            direction.X += 1f;
-
-        Velocity = direction.Normalized() * Speed;
-        MoveAndSlide();
+        Vignette = GetNode<CanvasItem>("Vignette/VignetteRect");
     }
 
+    // Movement (WASD + speed) lives in the MovementState machine now; this just aims at the mouse.
     public override void _Process(double delta)
     {
         Vector2 toMouse = GetGlobalMousePosition() - GlobalPosition;

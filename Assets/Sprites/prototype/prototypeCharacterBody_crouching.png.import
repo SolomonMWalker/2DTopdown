@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blmuqyolguw8c"
-path="res://.godot/imported/prototypeCharacterBody_right.png-793059b254cb9e1ea0ac84c53ac0ba35.ctex"
+uid="uid://bvsclf5fhlu1l"
+path="res://.godot/imported/prototypeCharacterBody_crouching.png-fbb3e489db763d808e1a2938e561bcc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/prototype/prototypeCharacterBody_right.png"
-dest_files=["res://.godot/imported/prototypeCharacterBody_right.png-793059b254cb9e1ea0ac84c53ac0ba35.ctex"]
+source_file="res://Assets/Sprites/prototype/prototypeCharacterBody_crouching.png"
+dest_files=["res://.godot/imported/prototypeCharacterBody_crouching.png-fbb3e489db763d808e1a2938e561bcc9.ctex"]
 
 [params]
 
