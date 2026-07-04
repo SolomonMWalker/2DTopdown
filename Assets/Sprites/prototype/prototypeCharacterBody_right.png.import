@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2fi25okervv"
-path="res://.godot/imported/circle_bisected.png-f99860170ae3a5d123c7e2c14699c796.ctex"
+uid="uid://blmuqyolguw8c"
+path="res://.godot/imported/prototypeCharacterBody_right.png-793059b254cb9e1ea0ac84c53ac0ba35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/AI/circle_bisected.png"
-dest_files=["res://.godot/imported/circle_bisected.png-f99860170ae3a5d123c7e2c14699c796.ctex"]
+source_file="res://Assets/Sprites/prototype/prototypeCharacterBody_right.png"
+dest_files=["res://.godot/imported/prototypeCharacterBody_right.png-793059b254cb9e1ea0ac84c53ac0ba35.ctex"]
 
 [params]
 

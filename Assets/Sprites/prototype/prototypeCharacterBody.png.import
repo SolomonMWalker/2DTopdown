@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxtdm1klr20cl"
-path="res://.godot/imported/circle_white.png-aff6d90b4a13f29442ace9d25db798d9.ctex"
+uid="uid://i1u27wi44ef3"
+path="res://.godot/imported/prototypeCharacterBody.png-267fd5a17b5c0b4c40de7eecd3e3c7ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/AI/circle_white.png"
-dest_files=["res://.godot/imported/circle_white.png-aff6d90b4a13f29442ace9d25db798d9.ctex"]
+source_file="res://Assets/Sprites/prototype/prototypeCharacterBody.png"
+dest_files=["res://.godot/imported/prototypeCharacterBody.png-267fd5a17b5c0b4c40de7eecd3e3c7ad.ctex"]
 
 [params]
 
