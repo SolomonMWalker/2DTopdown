@@ -25,6 +25,6 @@ public partial class PlayerController : CharacterBody2D
     {
         Vector2 toMouse = GetGlobalMousePosition() - GlobalPosition;
         if (toMouse.LengthSquared() > 0.0001f)
-            Rotation = toMouse.Angle();
+            Rotation = toMouse.Angle() + Mathf.DegToRad(90);
     }
 }

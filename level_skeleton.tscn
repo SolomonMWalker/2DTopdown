@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bwcaqcpllx6ou"]
+
+[ext_resource type="Script" uid="uid://cm5lti103y14x" path="res://GameManager.cs" id="1_nsvk6"]
+[ext_resource type="PackedScene" uid="uid://dxut63d4ivfhs" path="res://player_controller.tscn" id="2_bo6l6"]
+[ext_resource type="Shader" uid="uid://cuydorexopfnv" path="res://checker.gdshader" id="3_chkr"]
+[ext_resource type="TileSet" uid="uid://debrgieh1t55o" path="res://TileSets/AI_prototype/ai_prototype_tileset.tres" id="4_6r5ak"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chkr"]
+shader = ExtResource("3_chkr")
+shader_parameter/cell_size = 64.0
+shader_parameter/color_a = Color(0.18, 0.18, 0.2, 1)
+shader_parameter/color_b = Color(0.24, 0.24, 0.27, 1)
+
+[node name="LevelSkeleton" type="Node" unique_id=1756808597]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1445150444]
+z_index = -1
+material = SubResource("ShaderMaterial_chkr")
+offset_left = -49676.0
+offset_top = -49966.0
+offset_right = 50324.0
+offset_bottom = 50034.0
+
+[node name="Managers" type="Node" parent="." unique_id=880778337]
+
+[node name="GameManager" type="Node" parent="Managers" unique_id=762506454 groups=["GameManager"]]
+script = ExtResource("1_nsvk6")
+
+[node name="PlayerController" parent="." unique_id=1453468530 instance=ExtResource("2_bo6l6")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=52782909]
+scale = Vector2(8, 8)
+tile_set = ExtResource("4_6r5ak")

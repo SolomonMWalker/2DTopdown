@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="2DTopdown"
-run/main_scene="uid://dxut63d4ivfhs"
-config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+run/main_scene="uid://bwcaqcpllx6ou"
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="2DTopdown"
+
+[global_group]
+
+GameManager=""
 
 [input]
 
@@ -48,4 +52,5 @@ right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
