@@ -5,6 +5,12 @@ using Godot;
 [GlobalClass]
 public partial class CrouchingState : PlayerMovementLeafState
 {
+    public override void _Ready()
+    {
+        base._Ready();
+        AddTransition("Sprinting", () => Input.IsActionPressed("sprint"));
+    }
+
     public override void Enable()
     {
         base.Enable();

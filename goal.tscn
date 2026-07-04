@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b06v4gtid0age"]
+
+[ext_resource type="Script" path="res://Goal.cs" id="1_goal"]
+[ext_resource type="Texture2D" uid="uid://cxtdm1klr20cl" path="res://Assets/Sprites/Ai_prototype/circle_white.png" id="2_goal"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goal"]
+radius = 32.0
+
+[node name="Goal" type="Area2D" unique_id=100000001]
+script = ExtResource("1_goal")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=100000002]
+texture = ExtResource("2_goal")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=100000003]
+shape = SubResource("CircleShape2D_goal")
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=100000004]
+process_mode = 3
+visible = false
+
+[node name="Overlay" type="ColorRect" parent="WinScreen" unique_id=100000005]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 0.6)
+
+[node name="Menu" type="VBoxContainer" parent="WinScreen/Overlay" unique_id=100000006]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="WinScreen/Overlay/Menu" unique_id=100000007]
+text = "You beat the level!"
+horizontal_alignment = 1
+
+[node name="Reset" type="Button" parent="WinScreen/Overlay/Menu" unique_id=100000008]
+text = "Reset Scene"
+
+[node name="Quit" type="Button" parent="WinScreen/Overlay/Menu" unique_id=100000009]
+text = "Quit"

@@ -9,6 +9,7 @@ public partial class GameManager : Node
     public void ResetGame()
     {
         EmitSignalOnResetGame();
+        GetTree().Paused = false; // Paused is tree-level and survives the reload; clear it or the fresh scene starts frozen.
         GetTree().ReloadCurrentScene();
     }
     
@@ -16,11 +17,5 @@ public partial class GameManager : Node
     {
         EmitSignalOnQuitGame();
         GetTree().Quit();
-    }
-
-    public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event.IsActionPressed("ui_cancel"))
-            QuitGame();
     }
 }

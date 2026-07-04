@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ccvhnqshlkrc7"]
+
+[ext_resource type="Texture2D" uid="uid://cxtdm1klr20cl" path="res://Assets/Sprites/Ai_prototype/circle_white.png" id="1_dummy"]
+[ext_resource type="Script" path="res://LockOnComponent.cs" id="2_lock"]
+
+[node name="TestDummy" type="Node2D" unique_id=300000001]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=300000002]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_dummy")
+
+[node name="LockOnComponent" type="Node2D" parent="." unique_id=300000003]
+script = ExtResource("2_lock")

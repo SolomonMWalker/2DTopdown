@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dxut63d4ivfhs" path="res://player_controller.tscn" id="2_bo6l6"]
 [ext_resource type="Shader" uid="uid://cuydorexopfnv" path="res://checker.gdshader" id="3_chkr"]
 [ext_resource type="TileSet" uid="uid://debrgieh1t55o" path="res://Assets/TileSets/AI_prototype/ai_prototype_tileset.tres" id="4_6r5ak"]
+[ext_resource type="PackedScene" uid="uid://b06v4gtid0age" path="res://goal.tscn" id="5_goal"]
+[ext_resource type="PackedScene" uid="uid://b4bi0tpcjfh3y" path="res://pause_menu.tscn" id="6_pause"]
+[ext_resource type="PackedScene" uid="uid://ccvhnqshlkrc7" path="res://dummy.tscn" id="7_dummy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_chkr"]
 shader = ExtResource("3_chkr")
@@ -20,6 +23,7 @@ script = ExtResource("1_nsvk6")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1445150444]
 z_index = -1
+mouse_filter = 2
 material = SubResource("ShaderMaterial_chkr")
 offset_left = -49443.0
 offset_top = -49601.0
@@ -33,4 +37,10 @@ tile_set = ExtResource("4_6r5ak")
 
 [node name="PlayerController" parent="." unique_id=1453468530 instance=ExtResource("2_bo6l6")]
 
-[node name="Goal" type="Sprite2D" parent="." unique_id=172653103]
+[node name="Goal" parent="." unique_id=172653103 instance=ExtResource("5_goal")]
+position = Vector2(-131, -1856)
+
+[node name="PauseMenu" parent="." unique_id=1960680753 instance=ExtResource("6_pause")]
+
+[node name="TestDummy" parent="." unique_id=304916301 instance=ExtResource("7_dummy")]
+position = Vector2(190, -217)

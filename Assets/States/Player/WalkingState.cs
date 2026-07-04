@@ -5,4 +5,9 @@ using Godot;
 [GlobalClass]
 public partial class WalkingState : PlayerMovementLeafState
 {
+    public override void _Ready()
+    {
+        base._Ready();
+        AddTransition("Sprinting", () => Input.IsActionPressed("sprint"));
+    }
 }
