@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b06v4gtid0age"]
 
-[ext_resource type="Script" path="res://Goal.cs" id="1_goal"]
+[ext_resource type="Script" path="res://Assets/Goal/Goal.cs" id="1_goal"]
 [ext_resource type="Texture2D" uid="uid://cxtdm1klr20cl" path="res://Assets/Sprites/Ai_prototype/circle_white.png" id="2_goal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goal"]

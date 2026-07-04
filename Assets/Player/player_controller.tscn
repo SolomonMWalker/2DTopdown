@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxut63d4ivfhs"]
 
-[ext_resource type="Script" uid="uid://cak1vbforldpt" path="res://PlayerController.cs" id="1_f0yg5"]
+[ext_resource type="Script" uid="uid://cak1vbforldpt" path="res://Assets/Player/PlayerController.cs" id="1_f0yg5"]
 [ext_resource type="Texture2D" uid="uid://i1u27wi44ef3" path="res://Assets/Sprites/prototype/prototypeCharacterBody_standing.png" id="3_6nbh1"]
 [ext_resource type="Script" uid="uid://csfiuwgihnlal" path="res://Assets/States/StateMachine/StateMachine.cs" id="4_4garc"]
 [ext_resource type="Texture2D" uid="uid://cxtdm1klr20cl" path="res://Assets/Sprites/Ai_prototype/circle_white.png" id="4_halkx"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dmnm0gafnasgr" path="res://Assets/States/Player/CrouchingState.cs" id="8_crouch"]
 [ext_resource type="Script" uid="uid://m7h4xc8ixl11" path="res://Assets/States/Player/SprintingState.cs" id="9_sprint"]
 [ext_resource type="Shader" uid="uid://drl7f7oppksos" path="res://Assets/Shaders/vignette.gdshader" id="10_vshader"]
-[ext_resource type="Script" uid="uid://btx6b6nbis2bs" path="res://LockOnReticle.cs" id="11_reticle"]
+[ext_resource type="Script" uid="uid://btx6b6nbis2bs" path="res://Assets/LockOn/LockOnReticle.cs" id="11_reticle"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cejb"]
 radius = 17.777779

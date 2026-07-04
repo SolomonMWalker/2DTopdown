@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://bwcaqcpllx6ou"]
 
-[ext_resource type="Script" uid="uid://cm5lti103y14x" path="res://GameManager.cs" id="1_nsvk6"]
-[ext_resource type="PackedScene" uid="uid://dxut63d4ivfhs" path="res://player_controller.tscn" id="2_bo6l6"]
-[ext_resource type="Shader" uid="uid://cuydorexopfnv" path="res://checker.gdshader" id="3_chkr"]
+[ext_resource type="Script" uid="uid://cm5lti103y14x" path="res://Assets/Managers/GameManager.cs" id="1_nsvk6"]
+[ext_resource type="PackedScene" uid="uid://dxut63d4ivfhs" path="res://Assets/Player/player_controller.tscn" id="2_bo6l6"]
+[ext_resource type="Shader" uid="uid://cuydorexopfnv" path="res://Assets/Shaders/checker.gdshader" id="3_chkr"]
 [ext_resource type="TileSet" uid="uid://debrgieh1t55o" path="res://Assets/TileSets/AI_prototype/ai_prototype_tileset.tres" id="4_6r5ak"]
-[ext_resource type="PackedScene" uid="uid://b06v4gtid0age" path="res://goal.tscn" id="5_goal"]
-[ext_resource type="PackedScene" uid="uid://b4bi0tpcjfh3y" path="res://pause_menu.tscn" id="6_pause"]
-[ext_resource type="PackedScene" uid="uid://ccvhnqshlkrc7" path="res://dummy.tscn" id="7_dummy"]
+[ext_resource type="PackedScene" uid="uid://b06v4gtid0age" path="res://Assets/Goal/goal.tscn" id="5_goal"]
+[ext_resource type="PackedScene" uid="uid://b4bi0tpcjfh3y" path="res://Assets/UI/pause_menu.tscn" id="6_pause"]
+[ext_resource type="PackedScene" uid="uid://ccvhnqshlkrc7" path="res://Assets/LockOn/dummy.tscn" id="7_dummy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_chkr"]
 shader = ExtResource("3_chkr")
