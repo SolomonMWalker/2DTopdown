@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://k4micsc47cs5"
-path="res://.godot/imported/ai_dungeon_demo.png-5e31fb5f3e0e5a252d98e785e4fb8f85.ctex"
+path="res://.godot/imported/ai_dungeon_demo.png-657d4bc026062973af750c02ba93a4d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileSets/AI_prototype/ai_dungeon_demo.png"
-dest_files=["res://.godot/imported/ai_dungeon_demo.png-5e31fb5f3e0e5a252d98e785e4fb8f85.ctex"]
+source_file="res://Assets/TileSets/AI_prototype/ai_dungeon_demo.png"
+dest_files=["res://.godot/imported/ai_dungeon_demo.png-657d4bc026062973af750c02ba93a4d2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6k2j2hbq3k0y"
-path="res://.godot/imported/ai_dungeon_tileset.png-1f43603ce4417b875337a68831644c75.ctex"
+uid="uid://cxtdm1klr20cl"
+path="res://.godot/imported/circle_white.png-aff6d90b4a13f29442ace9d25db798d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileSets/AI_prototype/ai_dungeon_tileset.png"
-dest_files=["res://.godot/imported/ai_dungeon_tileset.png-1f43603ce4417b875337a68831644c75.ctex"]
+source_file="res://Assets/Sprites/AI/circle_white.png"
+dest_files=["res://.godot/imported/circle_white.png-aff6d90b4a13f29442ace9d25db798d9.ctex"]
 
 [params]
 
