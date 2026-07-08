@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="32" viewBox="0 0 48 32">
+  <!-- points +x (right), centered so it sits on the RangedWeapon origin -->
+  <!-- stock / body -->
+  <rect x="6" y="13" width="30" height="6" rx="2" fill="#5a3b22" stroke="#3a2614" stroke-width="1"/>
+  <!-- rail groove down the middle -->
+  <rect x="14" y="15" width="24" height="2" fill="#c8ccd2"/>
+  <!-- bow limbs (curved), near the front -->
+  <path d="M30 4 Q40 16 30 28" fill="none" stroke="#7a5230" stroke-width="3" stroke-linecap="round"/>
+  <!-- string -->
+  <line x1="31" y1="5" x2="31" y2="27" stroke="#d9dde2" stroke-width="1"/>
+  <!-- loaded bolt tip poking out the front -->
+  <polygon points="38,15 45,16 38,17" fill="#c8ccd2"/>
+</svg>

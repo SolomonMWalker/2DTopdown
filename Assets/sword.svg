@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- blade points up; origin roughly center so it rotates nicely -->
+  <!-- blade -->
+  <polygon points="32,4 37,12 37,40 27,40 27,12" fill="#d6dae0" stroke="#9aa0a8" stroke-width="1"/>
+  <!-- blade highlight -->
+  <polygon points="32,6 34,13 34,39 31,39 31,13" fill="#f2f4f7"/>
+  <!-- crossguard -->
+  <rect x="18" y="40" width="28" height="6" rx="2" fill="#c9a13b" stroke="#8a6d1f" stroke-width="1"/>
+  <!-- grip -->
+  <rect x="29" y="46" width="6" height="12" rx="2" fill="#7a4a25" stroke="#4d2c14" stroke-width="1"/>
+  <!-- pommel -->
+  <circle cx="32" cy="59" r="3.5" fill="#c9a13b" stroke="#8a6d1f" stroke-width="1"/>
+</svg>

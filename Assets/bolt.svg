@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="12" viewBox="0 0 40 12">
+  <!-- points +x (right); centered so it rotates about its middle -->
+  <rect x="4" y="5" width="26" height="2" fill="#6b4a2b"/>
+  <polygon points="28,2 38,6 28,10" fill="#c8ccd2" stroke="#8a9099" stroke-width="0.5"/>
+  <polygon points="2,2 8,6 2,10 4,6" fill="#c23b3b"/>
+</svg>
