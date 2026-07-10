@@ -32,6 +32,7 @@ public partial class SprintingState : PlayerMovementLeafState
     public override void StatePhysicsProcessing(double delta)
     {
         base.StatePhysicsProcessing(delta); // sets Velocity + moves
+        if (_player.RotationLocked) return; // committed to a swing's aim; don't turn toward the lunge
         if (_player.Velocity.LengthSquared() > 0.0001f)
         {
             float weight = 1f - Mathf.Exp(-TurnRate * (float)delta);

@@ -52,9 +52,123 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_thrust"]
-resource_name = "thrust"
-length = 0.28
+[sub_resource type="Animation" id="Animation_attack1"]
+resource_name = "attack1"
+length = 0.54
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/RightHand:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.36, 0.44, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.1, 2.1, -1.7, -1.9, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/RightHand:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.36, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, 35), Vector2(24, 42), Vector2(24, 42), Vector2(30, 22), Vector2(18, 35)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/LeftHand:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.34, 0.44, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -35), Vector2(18, -35), Vector2(12, -52), Vector2(12, -52), Vector2(18, -35)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.22, 0.36),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"SwingStart"
+}, {
+"args": [],
+"method": &"SwingEnd"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_attack2"]
+resource_name = "attack2"
+length = 0.54
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/RightHand:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.36, 0.44, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -2.1, -2.1, 1.7, 1.9, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/RightHand:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.36, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, 35), Vector2(24, 28), Vector2(24, 28), Vector2(30, 48), Vector2(18, 35)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/LeftHand:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.28, 0.4, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -35), Vector2(12, -52), Vector2(12, -52), Vector2(18, -35), Vector2(18, -35)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.22, 0.36),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"SwingStart"
+}, {
+"args": [],
+"method": &"SwingEnd"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_attack3"]
+resource_name = "attack3"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,16 +176,59 @@ tracks/0/path = NodePath("Sprites/RightHand:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.12, 0.28),
+"times": PackedFloat32Array(0, 0.16, 0.22, 0.32, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18, 35), Vector2(2, 35), Vector2(2, 35), Vector2(90, 35), Vector2(90, 35), Vector2(18, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/RightHand:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(18, 35), Vector2(75, 35), Vector2(18, 35)]
+"values": [0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/LeftHand:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -35), Vector2(18, -35)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.22, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"SwingStart"
+}, {
+"args": [],
+"method": &"SwingEnd"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_main"]
 _data = {
-&"shoot": SubResource("Animation_shoot"),
-&"thrust": SubResource("Animation_thrust")
+&"attack1": SubResource("Animation_attack1"),
+&"attack2": SubResource("Animation_attack2"),
+&"attack3": SubResource("Animation_attack3"),
+&"shoot": SubResource("Animation_shoot")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vig"]

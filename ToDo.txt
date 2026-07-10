@@ -1,0 +1,4 @@
+﻿7/9/2026 - add lagging weapon rotation behind the player rotation, so it doesn't seem as stiff.
+    Also, clean up the animations manually.
+    Determine if we need a player attacking state
+        could include the rotation and motion freeze, run it by Claude

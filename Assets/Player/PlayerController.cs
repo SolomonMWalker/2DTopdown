@@ -7,6 +7,8 @@ public partial class PlayerController : CharacterBody2D
     [Export] public float MaxCursorSelectDistance = 200f; // cursor must be this close to a target to lock
     [Export] public float MaxLockDistance = 1500f;        // lock breaks once player/target drift past this
     [Export] public PackedScene ProjectileScene;          // projectile fired by the Q ranged attack
+    [Export] public float LungeSpeed = 260f;              // forward nudge applied at each swing's start
+    [Export] public float LungeDeceleration = 900f;       // how fast that nudge bleeds back to zero
 
     // Vignette overlay the crouch state toggles. Cached here so states go through the controller
     // instead of hardcoding scene paths.
@@ -15,6 +17,25 @@ public partial class PlayerController : CharacterBody2D
     // Movement states set this: normal states aim the body at the mouse; Sprinting turns it off and
     // aims at the movement direction itself.
     public bool AimAtMouse = true;
+
+    // Set for the whole combo. Movement states read it to lock WASD (applying AttackVelocity instead).
+    public bool IsAttacking { get; private set; }
+
+    // Set once each swing's windup ends (SwingStart). While true, nothing re-aims the body - the
+    // player is committed to the direction they chose during the windup.
+    public bool RotationLocked { get; private set; }
+
+    // The decaying forward lunge applied during a swing. Movement states drive the body with this
+    // while IsAttacking; _PhysicsProcess bleeds it back to zero.
+    public Vector2 AttackVelocity { get; private set; }
+
+    // The 3-hit combo, in order: slash R->L, slash L->R, finishing stab.
+    private static readonly string[] ComboAnims = { "attack1", "attack2", "attack3" };
+    private int _comboIndex;
+    // Opened by SwingEnd (after a hit connects), closed when the animation ends or we chain. A live
+    // attack press while it's open advances the combo; presses at any other time are ignored (no
+    // queuing), so the player is never locked into a swing they mashed for earlier.
+    private bool _comboWindowOpen;
 
     // Current lock-on target, or null. Toggled with the middle mouse button.
     public LockOnComponent LockOnTarget { get; private set; }
@@ -44,7 +65,24 @@ public partial class PlayerController : CharacterBody2D
         _animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
         _weaponHitbox = GetNode<WeaponHitbox>("Sprites/RightHand/LightWeapon/WeaponHitbox");
         _muzzle = GetNode<Node2D>("Sprites/LeftHand/RangedWeapon");
-        _animationPlayer.AnimationFinished += _ => _weaponHitbox.Deactivate();
+        _animationPlayer.AnimationFinished += OnAnimationFinished;
+
+        // Cross-fade combo hops so chaining eases between poses instead of hard-snapping the sword.
+        _animationPlayer.SetBlendTime("attack1", "attack2", 0.08);
+        _animationPlayer.SetBlendTime("attack2", "attack3", 0.08);
+    }
+
+    // A combo animation reaching its end means no chain press arrived in the window -> combo over.
+    // (Chaining swaps the animation via Play(), which doesn't emit this.) "shoot" ends here too, but
+    // IsAttacking is false then, so it's a no-op.
+    private void OnAnimationFinished(StringName _)
+    {
+        if (IsAttacking) EndAttack();
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        AttackVelocity = AttackVelocity.MoveToward(Vector2.Zero, LungeDeceleration * (float)delta);
     }
 
     public override void _UnhandledInput(InputEvent @event)
@@ -59,7 +97,7 @@ public partial class PlayerController : CharacterBody2D
 
     private void Shoot()
     {
-        if (_animationPlayer.IsPlaying()) return; // one action at a time
+        if (IsAttacking || _animationPlayer.IsPlaying()) return; // one action at a time
         _animationPlayer.Play("shoot"); // FireProjectile is invoked from a method track at the hand's apex
     }
 
@@ -77,13 +115,56 @@ public partial class PlayerController : CharacterBody2D
         projectile.Launch(this);
     }
 
-    // ponytail: hitbox stays live for the whole thrust clip, not just the forward stab. Tighten with
-    // a call-method track (or a second window) when the swing needs precise active frames.
     private void Attack()
     {
-        if (_animationPlayer.IsPlaying()) return; // one swing at a time
+        if (IsAttacking)
+        {
+            // Mid-combo: a press only counts inside the window, and only if there's a next hit.
+            if (_comboWindowOpen && _comboIndex < ComboAnims.Length - 1)
+            {
+                _comboIndex++;
+                PlayCurrentAttack();
+            }
+            return;
+        }
+
+        if (_animationPlayer.IsPlaying()) return; // don't interrupt a shoot
+        IsAttacking = true;
+        _comboIndex = 0;
+        PlayCurrentAttack();
+    }
+
+    private void PlayCurrentAttack()
+    {
+        _comboWindowOpen = false;
+        RotationLocked = false;     // free to re-aim during this hit's windup; SwingStart re-locks it
+        _weaponHitbox.Deactivate(); // safety: SwingStart turns it back on for the active frames
+        _animationPlayer.Play(ComboAnims[_comboIndex]);
+    }
+
+    // Called from each attack animation's method track when the windup ends and the swing begins:
+    // commit the aim, arm the hitbox, and nudge the body forward.
+    public void SwingStart()
+    {
+        RotationLocked = true;
         _weaponHitbox.Activate();
-        _animationPlayer.Play("thrust");
+        AttackVelocity = Vector2.Right.Rotated(GlobalRotation) * LungeSpeed;
+    }
+
+    // Called when the swing's active frames end: disarm the hitbox and open the chain window.
+    public void SwingEnd()
+    {
+        _weaponHitbox.Deactivate();
+        _comboWindowOpen = true;
+    }
+
+    private void EndAttack()
+    {
+        IsAttacking = false;
+        RotationLocked = false;
+        _comboWindowOpen = false;
+        AttackVelocity = Vector2.Zero;
+        _weaponHitbox.Deactivate();
     }
 
     public override void _Process(double delta)
@@ -91,8 +172,9 @@ public partial class PlayerController : CharacterBody2D
         DropStaleLock();
 
         // Walk/crouch aim: at the lock-on target if locked, else at the mouse. Sprinting sets
-        // AimAtMouse=false and drives its own rotation, but the lock stays active.
-        if (AimAtMouse)
+        // AimAtMouse=false and drives its own rotation, but the lock stays active. RotationLocked
+        // freezes aim once a swing commits.
+        if (AimAtMouse && !RotationLocked)
         {
             Vector2 aim = LockOnTarget is not null ? LockOnTarget.GlobalPosition : GetGlobalMousePosition();
             Vector2 to = aim - GlobalPosition;

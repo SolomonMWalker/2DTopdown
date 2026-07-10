@@ -18,6 +18,14 @@ public partial class PlayerMovementLeafState : AtomicState
 
     public override void StatePhysicsProcessing(double delta)
     {
+        // Movement locked while attacking: no WASD, just the decaying forward lunge.
+        if (_player.IsAttacking)
+        {
+            _player.Velocity = _player.AttackVelocity;
+            _player.MoveAndSlide();
+            return;
+        }
+
         Vector2 direction = Vector2.Zero;
         if (Input.IsActionPressed("forward")) direction.Y -= 1f;
         if (Input.IsActionPressed("backward")) direction.Y += 1f;
