@@ -5,4 +5,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>DTopdown</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Levels\Test\" />
+  </ItemGroup>
 </Project>

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3sa0d8ggt41v"
-path="res://.godot/imported/sword.svg-5ecf90ce03b7c65697bf807f59867715.ctex"
+uid="uid://b054pjfpw3wbf"
+path="res://.godot/imported/crossbow.svg-1b0391f4b6186d6732fcbd8b9cffa186.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sword.svg"
-dest_files=["res://.godot/imported/sword.svg-5ecf90ce03b7c65697bf807f59867715.ctex"]
+source_file="res://Assets/Sprites/Ai_prototype/crossbow.svg"
+dest_files=["res://.godot/imported/crossbow.svg-1b0391f4b6186d6732fcbd8b9cffa186.ctex"]
 
 [params]
 

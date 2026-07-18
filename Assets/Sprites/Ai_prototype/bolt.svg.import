@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo140fkjn1i00"
-path="res://.godot/imported/bolt.svg-7b2c1c769757625d7c097a79a9f9bd69.ctex"
+path="res://.godot/imported/bolt.svg-b3e5f8e9e7c813335faeab37c06b04de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bolt.svg"
-dest_files=["res://.godot/imported/bolt.svg-7b2c1c769757625d7c097a79a9f9bd69.ctex"]
+source_file="res://Assets/Sprites/Ai_prototype/bolt.svg"
+dest_files=["res://.godot/imported/bolt.svg-b3e5f8e9e7c813335faeab37c06b04de.ctex"]
 
 [params]
 

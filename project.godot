@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 project/assembly_name="2DTopdown"
 
-[global_group]
-
-GameManager=""
-
 [input]
 
 forward={
