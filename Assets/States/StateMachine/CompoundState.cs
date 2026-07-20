@@ -9,7 +9,7 @@ namespace FirstPerson.CustomTypes.StateMachine;
 [GlobalClass]
 public partial class CompoundState : State
 {
-    [Export] public string DefaultStateName;
+    [Export] public State DefaultState;
 
     public List<State> ChildrenStates { get; private set; } = [];
     public State ActiveState;
@@ -23,14 +23,11 @@ public partial class CompoundState : State
             throw new Exception("Compound state has no children states");
         }
 
-        if (String.IsNullOrWhiteSpace(DefaultStateName))
-        {
-            DefaultStateName = ChildrenStates.First().Name;
-        }
+        DefaultState ??= ChildrenStates.First();
 
-        if (!TryGetStateByName(DefaultStateName, out var state))
+        if (!ChildrenStates.Contains(DefaultState))
         {
-            throw new Exception($"Default state name of {DefaultStateName} doesn't match with children states");
+            throw new Exception($"Default state {DefaultState.Name} is not a child of {Name}");
         }
 
         // Record the default child but DON'T enable it here. _Ready runs for every compound
@@ -39,7 +36,7 @@ public partial class CompoundState : State
         // though only the root's active branch should be live. Enabling flows top-down instead:
         // StateMachine._Ready calls RootState.Enable(), and CompoundState.Enable() cascades into
         // ActiveState, so exactly the active root-to-leaf path comes up enabled.
-        ActiveState = state;
+        ActiveState = DefaultState;
     }
 
     public override List<State> GetAllStates()
